@@ -5,12 +5,10 @@ import java.util.Objects;
 public class Move {
     private final Stick from;
     private final Stick to;
-    private final Stick temp;
 
-    public Move(Stick from, Stick to, Stick temp) {
+    public Move(Stick from, Stick to) {
         this.from = from;
         this.to = to;
-        this.temp = temp;
     }
 
     public Stick getFrom() {

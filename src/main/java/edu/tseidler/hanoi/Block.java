@@ -1,13 +1,13 @@
 package edu.tseidler.hanoi;
 
-public class Block {
+class Block {
     private final int weight;
 
-    public Block(int weight) {
+    Block(int weight) {
         this.weight = weight;
     }
 
-    public int getWeight() {
+    int getWeight() {
         return weight;
     }
 }

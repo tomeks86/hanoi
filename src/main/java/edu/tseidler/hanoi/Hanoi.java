@@ -1,9 +1,6 @@
 package edu.tseidler.hanoi;
 
-import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.List;
-import java.util.Stack;
 
 import static edu.tseidler.hanoi.Stick.FIRST;
 
