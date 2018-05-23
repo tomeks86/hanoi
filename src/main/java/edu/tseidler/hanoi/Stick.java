@@ -3,7 +3,7 @@ package edu.tseidler.hanoi;
 import java.util.EnumSet;
 
 public enum Stick {
-    FIRST, SECOND, THIRD;
+    START, HELP, TARGET;
     private static EnumSet<Stick> all = EnumSet.allOf(Stick.class);
 
     public static Stick temp(Stick one, Stick two) {

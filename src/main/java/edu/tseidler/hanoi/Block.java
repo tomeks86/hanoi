@@ -7,7 +7,7 @@ class Block {
         this.weight = weight;
     }
 
-    int getWeight() {
-        return weight;
+    public boolean isHeavier(Block other) {
+        return weight > other.weight;
     }
 }

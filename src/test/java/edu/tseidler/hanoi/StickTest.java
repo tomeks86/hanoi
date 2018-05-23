@@ -3,21 +3,19 @@ package edu.tseidler.hanoi;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static edu.tseidler.hanoi.Stick.FIRST;
-import static edu.tseidler.hanoi.Stick.SECOND;
-import static edu.tseidler.hanoi.Stick.THIRD;
-import static org.testng.Assert.*;
+import static edu.tseidler.hanoi.Stick.*;
+import static org.testng.Assert.assertEquals;
 
 public class StickTest {
     @DataProvider
     public static Object[][] stickTempData() {
         return new Object[][]{
-                {FIRST, SECOND, THIRD},
-                {SECOND, FIRST, THIRD},
-                {THIRD, FIRST, SECOND},
-                {FIRST, THIRD, SECOND},
-                {THIRD, SECOND, FIRST},
-                {SECOND, THIRD, FIRST},
+                {START, TARGET, HELP},
+                {TARGET, START, HELP},
+                {START, HELP, TARGET},
+                {HELP, START, TARGET},
+                {HELP, TARGET, START},
+                {TARGET, HELP, START},
         };
     }
 

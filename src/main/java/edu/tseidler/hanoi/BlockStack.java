@@ -7,7 +7,7 @@ public class BlockStack extends Stack<Block> {
     public Block push(Block candidate) {
         if (this.isEmpty())
             return super.push(candidate);
-        else if (super.peek().getWeight() < candidate.getWeight())
+        else if (candidate.isHeavier(super.peek()))
             throw new IllegalStateException("cannot push heavier block over the lighter");
         return super.push(candidate);
     }
