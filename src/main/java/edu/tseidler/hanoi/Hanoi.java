@@ -16,7 +16,7 @@ public class Hanoi {
         for (Stick stick : Stick.values()) {
             this.board.put(stick, new BlockStack());
         }
-        for (int i = blocks; i >= 1 ; i--) {
+        for (int i = blocks; i >= 1; i--) {
             board.get(START).push(new Block(i));
         }
     }
@@ -26,8 +26,11 @@ public class Hanoi {
     }
 
     private Move moveOneBlock(Stick from, Stick to) {
+        System.out.println(this);
+        Move move = new Move(from, to);
+        System.out.println(move + "\n");
         moveBlockOnBoard(from, to);
-        return new Move(from, to);
+        return move;
     }
 
     private void moveBlockOnBoard(Stick from, Stick to) {
@@ -44,5 +47,16 @@ public class Hanoi {
         moves.add(moveOneBlock(from, to));
         moveNSticks(temp, to, n - 1, moves);
         return moves;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Stick stick : Stick.values()) {
+            sb.append((stick.ordinal() + 1) + ": ")
+                    .append(board.get(stick))
+                    .append("\n");
+        }
+        return sb.toString();
     }
 }

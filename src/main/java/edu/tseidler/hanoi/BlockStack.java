@@ -11,4 +11,13 @@ public class BlockStack extends Stack<Block> {
             throw new IllegalStateException("cannot push heavier block over the lighter");
         return super.push(candidate);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Block block : this) {
+            sb.append(block.getWeight() + " ");
+        }
+        return sb.toString();
+    }
 }

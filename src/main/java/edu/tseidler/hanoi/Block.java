@@ -7,7 +7,17 @@ class Block {
         this.weight = weight;
     }
 
-    public boolean isHeavier(Block other) {
+    boolean isHeavier(Block other) {
         return weight > other.weight;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        return sb.toString();
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

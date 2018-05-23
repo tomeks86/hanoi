@@ -30,6 +30,23 @@ public class HanoiTest {
                         getMove(2, 1),
                         getMove(2, 3),
                         getMove(1, 3)
+                }},
+                {4, new Move[] {
+                        getMove(1,2),
+                        getMove(1,3),
+                        getMove(2,3),
+                        getMove(1,2),
+                        getMove(3,1),
+                        getMove(3,2),
+                        getMove(1,2),
+                        getMove(1,3),
+                        getMove(2,3),
+                        getMove(2,1),
+                        getMove(3,1),
+                        getMove(2,3),
+                        getMove(1,2),
+                        getMove(1,3),
+                        getMove(2,3),
                 }}
         };
     }

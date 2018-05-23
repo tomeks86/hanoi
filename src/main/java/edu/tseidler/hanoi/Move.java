@@ -33,7 +33,6 @@ public class Move {
 
     @Override
     public String toString() {
-//        return from + " -> " + to;
         return (from.ordinal() + 1) + " -> " + (to.ordinal() + 1);
     }
 }
