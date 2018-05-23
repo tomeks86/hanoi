@@ -1,14 +1,13 @@
 package edu.tseidler.hanoi;
 
-public class Block implements Comparable<Block> {
+public class Block {
     private final int weight;
 
     public Block(int weight) {
         this.weight = weight;
     }
 
-    @Override
-    public int compareTo(Block other) {
-        return weight - other.weight;
+    public int getWeight() {
+        return weight;
     }
 }

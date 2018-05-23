@@ -3,19 +3,21 @@ package edu.tseidler.hanoi;
 import java.util.Objects;
 
 public class Move {
-    private final int from;
-    private final int to;
+    private final Stick from;
+    private final Stick to;
+    private final Stick temp;
 
-    public Move(int from, int to) {
+    public Move(Stick from, Stick to, Stick temp) {
         this.from = from;
         this.to = to;
+        this.temp = temp;
     }
 
-    public int getFrom() {
+    public Stick getFrom() {
         return from;
     }
 
-    public int getTo() {
+    public Stick getTo() {
         return to;
     }
 
