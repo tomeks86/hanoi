@@ -13,8 +13,16 @@ public class Move {
         this.temp = Stick.temp(from, to);
     }
 
-    public static Move getMove(int from, int to) {
+    static Move getMove(int from, int to) {
         return new Move(Stick.values()[from - 1], Stick.values()[to - 1]);
+    }
+
+    public Stick getFrom() {
+        return from;
+    }
+
+    public Stick getTo() {
+        return to;
     }
 
     @Override

@@ -26,15 +26,11 @@ public class Hanoi {
     }
 
     private Move moveOneBlock(Stick from, Stick to) {
-        System.out.println(this);
-        Move move = new Move(from, to);
-        System.out.println(move + "\n");
-        moveBlockOnBoard(from, to);
-        return move;
+        return new Move(from, to);
     }
 
-    private void moveBlockOnBoard(Stick from, Stick to) {
-        board.get(to).push(board.get(from).pop());
+    public void applyMove(Move move) {
+        board.get(move.getTo()).push(board.get(move.getFrom()).pop());
     }
 
     private List<Move> moveNSticks(Stick from, Stick to, int n, List<Move> moves) {
