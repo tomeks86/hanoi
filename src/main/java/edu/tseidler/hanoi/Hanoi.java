@@ -3,6 +3,7 @@ package edu.tseidler.hanoi;
 import java.util.EnumMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import static edu.tseidler.hanoi.Stick.*;
 
@@ -22,26 +23,40 @@ public class Hanoi {
     }
 
     public List<Move> solution() {
-        return moveNSticks(Stick.START, Stick.TARGET, blocks, new LinkedList<>());
+        return moveNSticks(Stick.START, Stick.TARGET, blocks, new LinkedList<>(), move -> {});
+    }
+
+    public List<Move> solve() {
+        return moveNSticks(START, TARGET, blocks, new LinkedList<>(), this::applyMoveAndShow);
+    }
+
+    private void applyMoveAndShow(Move m) {
+        System.out.println(m);
+        applyMoveToBoard(m);
+        System.out.println(this);
     }
 
     private Move moveOneBlock(Stick from, Stick to) {
         return new Move(from, to);
     }
 
-    public void applyMove(Move move) {
+    public void applyMoveToBoard(Move move) {
         board.get(move.getTo()).push(board.get(move.getFrom()).pop());
     }
 
-    private List<Move> moveNSticks(Stick from, Stick to, int n, List<Move> moves) {
+    private List<Move> moveNSticks(Stick from, Stick to, int n, List<Move> moves, Consumer<Move> makeMove) {
         if (n == 1) {
-            moves.add(moveOneBlock(from, to));
+            Move m = moveOneBlock(from, to);
+            moves.add(m);
+            makeMove.accept(moveOneBlock(from, to));
             return moves;
         }
         Stick temp = Stick.temp(from, to);
-        moveNSticks(from, temp, n - 1, moves);
-        moves.add(moveOneBlock(from, to));
-        moveNSticks(temp, to, n - 1, moves);
+        moveNSticks(from, temp, n - 1, moves, makeMove);
+        Move m = moveOneBlock(from, to);
+        moves.add(m);
+        makeMove.accept(m);
+        moveNSticks(temp, to, n - 1, moves, makeMove);
         return moves;
     }
 
